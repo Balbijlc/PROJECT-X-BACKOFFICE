@@ -1,19 +1,22 @@
+import { ObjectUnsubscribedError } from "rxjs";
 
 
 
 
 export interface Create {
   
-    data:{
-
-     plate?: number;
-
-     brand?: string;
-
-     name?: string;
 
 
-    }
+     plate: number;
+
+     brand: string;
+
+     name: string;
+
+     _id
+     : string;
+
+
     
 
 }

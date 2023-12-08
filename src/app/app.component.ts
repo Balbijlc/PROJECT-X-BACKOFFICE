@@ -1,9 +1,11 @@
-import { Component, inject } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import { Create } from 'src/interface/createvehiculo';
 import { CarsServiceService } from './cars-service.service';
 import { Observable } from 'rxjs';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { cars } from 'src/interface/cars.interface';
+
 
 @Component({
   selector: 'app-root',
@@ -11,8 +13,10 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-
-  cars: Create[]=[]
+  @Input()
+  public cars!: Create;
+  public Cars : Create[]=[];
+  public id!: cars;
 
   title = 'PROJECT-X-BACKOFFICE';
   
@@ -46,7 +50,7 @@ export class AppComponent {
   
  
 
-
+//El que funciona
 createUser(){
 
 
@@ -59,60 +63,38 @@ console.log(this.data.value)
 }
 
 
-Get() {
-  
+getcars (){
+  this.CarsService.GetCars().subscribe(cars => {
+   this.Cars = cars
+  })
 
-  const VerGet = this.CarsService.GetCars()
-
-  console.log(VerGet)
-  
+  //Manejar lista de vehiculos
 }
 
-
-
-
-
-
-
-    
-//   ).subscribe(response => {
-//     console.log(response, 'Excelente')
-//   })
-
-// // console.log(this.myForm.value)
-// //     return this.myForm.value
-   
-// }
-
-
-
-
-  
-
-
-enviardata(){
-
-
-
-  const url = 'http://localhost:4000/api/cars';
-  const headers = new HttpHeaders({
-    'Content-Type': 'application/json',
+deletecars (id:string){
+  this.CarsService.deleteUser(id).subscribe(() => {
+    console.log(`Cars con id ${id} eliminado`)
   });
+}
+
+updatecars(id:string){
   
-  const data = {
-    name: '',
-    plate: '',
-    brand: '',
-  };
-  
-  this.http.post(url, data, { headers }).subscribe()
-   
-    
-  
+  const body = this.data.value;
+
+  console.log(body)
+
+ this.CarsService.updateCars(body,id).subscribe((updateData)=>{
+  console.log("vehiculo", updateData);
+
+  this.getcars();
+ })
+ 
+}
 
 
 
 }
 
 
-}
+
+

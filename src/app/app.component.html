@@ -17,7 +17,7 @@
 <h1>Hola</h1>
 <div>
   <h1>Crear Usuario</h1>
-  <form
+  <form #createForm="ngForm"
   [formGroup]="data"
   (submit)="createUser(
   )">
@@ -53,20 +53,108 @@
 
   <div>
 
+    <div>
+      
+   
+    <!-- Button para hacer submit para mandar informacion y actualizar -->
+  
 
-    <card-list></card-list>
+  </div>
+
+
+    <card-list>
+  
+    </card-list>
+  
+  
+    <button (click)="getcars()">Obtener Todos los Vehículos</button>
+
+    <form class="mt-2 " action=""    
+    *ngFor="let car of Cars" #createForm="ngForm"
+[formGroup]="data">
+
+
+<!-- (submit)="updatecars(car._id)" -->
+    
+    <div *ngFor="let car of Cars" class="card text-secondary ">
+    <h3>{{ car.name }}</h3> 
+     <input   formControlName="name" placeholder="name"  type="text" name="" id="name">
+     <hr>
+    <p>Marca: {{ car.brand }}</p>
+    <input  formControlName="brand"  placeholder="brand"  type="text" name="" id="brand" >
+    <p>Placa: {{ car.plate }}</p>
+    <input  formControlName="plate"      type="number" name="" id="plate" >
+
+    <button (click)="deletecars(car._id)">Eliminarrr</button>
+
+
+
+    
+
+    <button (click)="updatecars(car._id)">Actualizar</button>
+ 
+  </div>
+  
+        </form>
 
   </div>
 </div>
 
 
 
-<h2>Lista de Vehículos</h2>
-<div *ngFor="let car of cars">
-  <!-- {{}} - {{  }} - {{}} -->
-  <button >Actualizar</button>
-  <button >Eliminar</button>
+<!-- 
+<form *ngFor="let car of Cars" #createForm="ngForm"
+[formGroup]="data"
+(submit)="updatecars(car._id)">
+
+  <label for="plate">Plate:</label> 
+  <input  formControlName="plate"    type="number" name="" id="plate" >
+
+
+  <label      for="brand">Brand:</label>
+
+  <input  formControlName="brand"    type="text" name="" id="brand" >
+
+  <label     for="name">Name:</label>
+
+
+
+
+  <input   formControlName="name"   type="text" name="" id="name">
+
+  
+</form> -->
+
+
+
+<div>
+  <h1>Gestión de Vehículos</h1>
+
+
+  <!-- <form #createForm="ngForm" (ngSubmit)="createUser()">
+    <label for="name">Nombre:</label>
+    <input type="text" name="name" [(ngModel)]="cars.name" required>
+
+    <label for="brand">Marca:</label>
+    <input type="text" name="brand" [(ngModel)]="cars.brand" required>
+
+    <label for="plate">Placa:</label>
+    <input type="text" name="plate" [(ngModel)]="cars.plate" required>
+
+    <button type="submit">Crear Vehículo</button>
+  </form> -->
+
+  <!-- Obtener Todos los Vehículos -->
+ 
+ 
 </div>
+
+
+
+<h1>hola</h1>
+
+
+
 
 
 <router-outlet></router-outlet>
