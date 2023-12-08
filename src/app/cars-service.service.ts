@@ -17,7 +17,7 @@ export class CarsServiceService {
 
 
 
-  private readonly apiUrl: string = 'http://localhost:4000/api/cars';
+  private readonly apiUrl = environments.apiUrl;
   
   
   constructor(private http: HttpClient){}
@@ -82,15 +82,13 @@ export class CarsServiceService {
   
   GetCars() {
 
-
-
     const url = `${this.apiUrl}`;
 
     return this.http.get<Create>( url )
        .pipe(
          catchError(error => {
           console.error('Error al crear usuario', error);
-          throw error; // Puedes manejar el error de alguna manera
+          throw error; 
        })
      )
    

@@ -12,7 +12,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class AppComponent {
 
-  
+  cars: Create[]=[]
 
   title = 'PROJECT-X-BACKOFFICE';
   
@@ -36,6 +36,13 @@ export class AppComponent {
     
    
   });
+
+
+  loadCars() {
+    this.CarsService.GetCars().subscribe((cars) => {
+      console.log("paso")
+    });
+  }
   
  
 
