@@ -13,27 +13,25 @@ import { cars } from 'src/interface/cars.interface';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  title = 'PROJECT-X-BACKOFFICE';
+
+
+
   @Input()
   public cars!: Create;
   public Cars : Create[]=[];
   public id!: cars;
 
-  title = 'PROJECT-X-BACKOFFICE';
   
   private fb            = inject( FormBuilder);
   private CarsService   = inject( CarsServiceService );
- constructor(private http:HttpClient){
-
-  const VerGet = this.CarsService.GetCars()
-
-  console.log(VerGet)
- }
+ constructor(private http:HttpClient){}
 
   
   public data: FormGroup = this.fb.group({
     
 
-      brand:['',   ],
+      brand:['', ],
       plate:['', ],
       name: ['', ],
 
@@ -42,16 +40,10 @@ export class AppComponent {
   });
 
 
-  loadCars() {
-    this.CarsService.GetCars().subscribe((cars) => {
-      console.log("paso")
-    });
-  }
-  
  
 
 //El que funciona
-createUser(){
+createcars(){
 
 
   const {name, brand, plate}= this.data.value;

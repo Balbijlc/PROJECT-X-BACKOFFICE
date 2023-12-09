@@ -1,21 +1,27 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CardCarsComponent } from './components/card-cars/card-cars.component';
-import { CardListComponent } from './components/card-list/card-list.component';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AgregarCarsComponent } from './components/agregar-cars/agregar-cars.component';
 
 
 
 @NgModule({
   declarations: [
     CardCarsComponent,
-    CardListComponent
+
+    AgregarCarsComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+   
   ],
   exports:[
     CardCarsComponent,
-    CardListComponent
+ 
   ]
 })
 export class CarsModule { }

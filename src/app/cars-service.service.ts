@@ -42,7 +42,7 @@ public id!: cars;
 
 
 
-  createUser(name:string, brand:string, plate:number): Observable<Create> {
+  createUser(name:string, brand:string, plate:string): Observable<Create> {
 
     const body = {brand,plate,name};
     console.log()
@@ -63,7 +63,7 @@ public id!: cars;
 
   
 
-  UpdateCars(name:string, brand:string, plate:number): Observable<Create> {
+  UpdateCars(name:string, brand:string, plate:string): Observable<Create> {
 
     const body = {brand,plate,name};
     console.log()
