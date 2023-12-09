@@ -30,8 +30,8 @@ export class AuthService {
   private setAuthentication(user: User, token:string): boolean {
 
     this._currentUser.set( user );
-    this._authStatus.set( AuthStatus.authenticated );
-    localStorage.setItem('token', token);
+    // this._authStatus.set( AuthStatus.authenticated );
+    // localStorage.setItem('token', token);
 
     return true;
   }
