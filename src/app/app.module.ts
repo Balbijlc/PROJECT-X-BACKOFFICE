@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { CarsModule } from './cars/cars.module';
+import { CarsModule } from './dashboard/cars/cars.module';
 
 
 @NgModule({
@@ -19,7 +19,7 @@ import { CarsModule } from './cars/cars.module';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    CarsModule,
+  
   ],
   providers: [],
   bootstrap: [AppComponent],
