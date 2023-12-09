@@ -2,7 +2,7 @@
 <div class="min-h-screen flex items-center justify-center bg-blue-400 bg-opacity-20">
     
     <div class="w-400 bg-white p-8 rounded-lg">
-        <h1><button    (click)="getcars()"  class="btn btn-danger m-2"   > Vehiculo disponible    </button></h1>
+      
         <h1 class="text-3xl font-bold text-black mb-6">Crear vehiculo</h1>
         <form #createForm="ngForm" [formGroup]="data" (submit)="createcars()">
             <hr class="my-4 border-2 border-black">
@@ -22,7 +22,9 @@
                 <input class="w-full p-2 border border-black rounded" placeholder="Agrega el modelo" formControlName="name" type="text" id="name">
             </div>
 
-            <button (click)="devuelta()" (click)="getcars()"  class="bg-blue-500 text-white hover:bg-blue-700 font-bold py-2 px-4 rounded-full ">Crear vehiculo</button>
+            <button (click)="devuelta()" (click)="getcars()"  class="m-3 bg-blue-500 text-white hover:bg-blue-700 font-bold py-2 px-4 rounded-full ">Crear vehiculo</button>
+            <h1><button    (click)="getcars()"  class=" 
+               m-3 bg-blue-500 text-white hover:bg-blue-700 font-bold py-2 px-4 rounded-full"   > Vehiculos disponible    </button></h1>
         </form>
     </div>
 </div>
@@ -111,7 +113,7 @@
            
             <input class="text-gray-600 bg-white bg-opacity-70 rounded-md p-2"  formControlName="brand"  placeholder="marca"  type="text" name="" id="brand" >
 
-            <button (click)="devuelta()" (click)=" this.getcars()" ;  (click)="updatecars(car._id)"  class="btn btn-danger m-2"   > Actualizar    </button>
+            <button (click)="devuelta()" (click)="this.getcars();"  (click)="updatecars(car._id)"  class="btn btn-danger m-2"   > Actualizar    </button>
 
         </div>
 
@@ -142,7 +144,7 @@
             
             <button *ngIf="destroy" (click)="QuieresActualizar()"  class=" m-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"   > Actualizar    </button>
 
-            <button *ngIf="destroy" (click)="deletecars(car._id)" (click)="this.getcars()"    class=" m-2 bg-white text-blue-500 hover:text-blue-700 font-bold py-2 px-4 rounded-full"   >  Eliminar     </button>
+            <button *ngIf="destroy"  (click)="deletecars(car._id)" class=" m-2 bg-white text-blue-500 hover:text-blue-700 font-bold py-2 px-4 rounded-full"   >  Eliminar     </button>
 
 <!-- 
             <button *ngIf="destroy" (click)="crear()" class=" m-5 border border-#1e293b-500 hover:border-blue-700 text-blue-500 hover:text-white font-bold py-2 px-4 rounded-full"   >  Agregar vehiculo  </button> -->

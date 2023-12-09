@@ -10,8 +10,6 @@ export class FooterComponent {
   anio: number = new Date().getFullYear();
 
 
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
+
 
 }

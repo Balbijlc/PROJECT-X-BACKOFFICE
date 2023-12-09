@@ -13,11 +13,12 @@ import { Location } from '@angular/common';
   templateUrl: './card-cars.component.html',
 
 })
-export class CardCarsComponent implements OnInit {
+export class CardCarsComponent  {
 
   public hasLoaded: boolean = true;
   public destroy: boolean = true;
   public actualizar: boolean = false;
+  public lola: boolean = false;
 
 
 
@@ -31,15 +32,15 @@ export class CardCarsComponent implements OnInit {
   @Input()
   public Carss!: Create;
   
-  ngOnInit(): void {
-    if( !this.Carss)throw new Error ('No encontro vehiculo');
-    console.log(this.ngOnInit)
-  }
+  // ngOnInit(): void {
+  //   if( !this.Carss)throw new Error ('No encontro vehiculo');
+  //   console.log(this.ngOnInit)
+  // }
   
   private fb            = inject( FormBuilder);
   private CarsService   = inject( CarsServiceService );
  constructor(private http:HttpClient){
-  this.getcars();
+  // this.getcars();
  }
 
   
@@ -120,6 +121,7 @@ QuieresActualizar(){
 // }
 
 crear(){
+  this.lola=true;
   this.hasLoaded = true;
   this.destroy=false;
   this.actualizar=true;

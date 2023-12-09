@@ -29,6 +29,8 @@ export class RegisterPageComponent {
         next: () => {
           // Registro exitoso, puedes redirigir al usuario a la página de inicio de sesión o a otra página de tu elección
           this.router.navigateByUrl('/dashboard');
+        
+
 
         }});
   }

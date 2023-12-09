@@ -26,7 +26,7 @@ public id!: cars;
 
   // Método para realizar una solicitud GET a tu API
   get(endpoint: string): Observable<any> {
-    const url = `${this.apiUrl}/${endpoint}`;
+    const url = `${this.apiUrl}/api/cars/${endpoint}`;
     return this.http.get(url);
   }
 
@@ -47,7 +47,7 @@ public id!: cars;
     const body = {brand,plate,name};
     console.log()
 
-    const url = `${this.apiUrl}`;
+    const url = `${this.apiUrl}/api/cars`;
 
     return this.http.post<Create>(url, body)
        .pipe(
@@ -68,7 +68,7 @@ public id!: cars;
     const body = {brand,plate,name};
     console.log()
 
-    const url = `${this.apiUrl}`;
+    const url = `${this.apiUrl}/api/cars`;
 
     return this.http.patch<Create>(url, body)
        .pipe(
@@ -84,7 +84,7 @@ public id!: cars;
   
   GetCars(): Observable<Create[]> {
 
-    const url = `${this.apiUrl}`;
+    const url = `${this.apiUrl}/api/cars`;
 
     return this.http.get<Create[]>( url )
        .pipe(
@@ -99,7 +99,7 @@ public id!: cars;
 
   deleteUser(id:string):Observable<void>{
 
-    const url = `${this.apiUrl}/${id}`;
+    const url = `${this.apiUrl}/api/cars/${id}`;
 console.log(url)
     return this.http.delete<void>(url)
     .pipe(
@@ -116,7 +116,7 @@ console.log(url)
 
   updateCars(body:Create, id:string): Observable<void>{
  
-     const url = `${this.apiUrl}/${id}`;
+     const url = `${this.apiUrl}/api/cars/${id}`;
      console.log(url)
 
   return this.http.patch<void>(url,body)
