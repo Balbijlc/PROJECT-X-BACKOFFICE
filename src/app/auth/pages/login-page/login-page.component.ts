@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-// import Swal from '';'sweetalert2/src/sweetalert2.scss'
+
 
 
 // import Swal from 'sweetalert2';
@@ -21,8 +21,8 @@ export class LoginPageComponent {
 
 
   public myForm: FormGroup = this.fb.group({
-    email:    ['damariscarolina@gmail.com', [ Validators.required, Validators.email ]],
-    password: ['207740063', [ Validators.required, Validators.minLength(6) ]],
+    email:    ['admin@gmail.com', [ Validators.required, Validators.email ]],
+    password: ['Descontrol1.', [ Validators.required, Validators.minLength(6) ]],
     
   });
 

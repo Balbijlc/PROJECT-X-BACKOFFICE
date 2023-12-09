@@ -19,6 +19,7 @@ export class CardCarsComponent implements OnInit {
   public actualizar: boolean = false;
 
 
+
   @Input()
   public cars!: Create;
   @Input()
@@ -61,9 +62,8 @@ createcars(){
        const {name, brand, plate}= this.data.value;
        console.log(this.data.value)
        this.CarsService.createUser(name, brand, plate).subscribe();
-       location.reload();
-
-
+       this.getcars();
+       
 
 
 }
@@ -75,13 +75,15 @@ getcars (){
    this.Cars = cars
   })
  //Manejar lista de vehiculos
+
+ 
 }
 
 deletecars (id:string){
   this.CarsService.deleteUser(id).subscribe(() => {
     console.log(`Cars con id ${id} eliminado`)
   });
-  
+  this.getcars();
  
 }
 
@@ -90,11 +92,11 @@ updatecars(id:string){
   const body = this.data.value;
 
   console.log(body)
-
+  
  this.CarsService.updateCars(body,id).subscribe((updateData)=>{
   console.log("vehiculo", updateData);
-
-   this.getcars();
+  this.getcars();
+  
   
  })
  
@@ -116,6 +118,14 @@ crear(){
   this.hasLoaded = true;
   this.destroy=false;
   this.actualizar=true;
+  return
+
+}
+
+devuelta(){
+  this.hasLoaded=true;
+  this.destroy=true;
+  this.actualizar=false;
   return
 
 }

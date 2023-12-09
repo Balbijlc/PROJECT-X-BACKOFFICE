@@ -7,6 +7,7 @@ import { AgregarCarsComponent } from './components/agregar-cars/agregar-cars.com
 
 
 
+
 @NgModule({
   declarations: [
     CardCarsComponent,
@@ -17,6 +18,7 @@ import { AgregarCarsComponent } from './components/agregar-cars/agregar-cars.com
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+
    
   ],
   exports:[
