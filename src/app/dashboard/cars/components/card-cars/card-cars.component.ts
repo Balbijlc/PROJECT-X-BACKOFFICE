@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { cars } from 'src/interface/cars.interface';
+import { Location } from '@angular/common';
 
 
 @Component({
@@ -61,8 +62,11 @@ createcars(){
   
        const {name, brand, plate}= this.data.value;
        console.log(this.data.value)
-       this.CarsService.createUser(name, brand, plate).subscribe();
-       this.getcars();
+       this.CarsService.createUser(name, brand, plate).subscribe(()=>{
+       
+       });
+       this.data.reset();
+       this.getcars()
        
 
 
@@ -81,9 +85,10 @@ getcars (){
 
 deletecars (id:string){
   this.CarsService.deleteUser(id).subscribe(() => {
-    console.log(`Cars con id ${id} eliminado`)
+    
   });
-  this.getcars();
+
+  
  
 }
 
